@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test3</title>
+		<!-- react核心库 -->
+		<script src="../public/react.js"></script> 
+		<!-- 提供与DOM相关的功能 -->
+		<script src="../public/react-dom.js"></script> 
+		<!-- 将jsx转化成JavaScript -->
+		<script src="../public/browser.min.js"></script>
+		<!-- 引入jquery.js -->
+		<script src="../public/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="test"></div>
+		<script type="text/babel">
+			var MyGist = React.createClass({
+				getInitialState: function(){
+					return {
+						username: '',
+						lastGistUrl: ''
+					}
+				},
+				componentDidMount: function(){
+					this.serverRequest = $.get(this.props.source,function(result){
+						var lastGist = result[0];
+						this.setState({
+							username: lastGist.owner.login,
+							lastGistUrl: lastGist.html_url
+						});
+					}.bind(this));
+				},
+				componentWillUnmount: function(){
+					this.serverRequest.abort();
+				},
+				render: function(){
+					return (
+						<div>
+							用户{this.state.username}的最新Gist地址：
+							<a href={this.state.lastGistUrl}>{this.state.lastGistUrl}</a>
+						</div>
+					);
+				}
+			});
+			ReactDOM.render(
+				<MyGist source="https://api.github.com/users/zhoujinhai/gists" />,
+				document.getElementById('test')
+			);
+		</script>
+	</body>
+</html>

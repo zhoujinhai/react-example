@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test1</title>
+		<!-- react核心库 -->
+		<script src="../public/react.js"></script> 
+		<!-- 提供与DOM相关的功能 -->
+		<script src="../public/react-dom.js"></script> 
+		<!-- 将jsx转化成JavaScript -->
+		<script src="../public/browser.min.js"></script>
+	</head>
+	<body>
+		<div id="test"></div>
+		<script type="text/babel">
+			// var textStyle = {
+			// 	text-align: center
+			// };
+			var HelloText = React.createClass({
+				render: function(){
+					return <h1>hello,welcome to the world!</h1>;
+				}
+			});
+			ReactDOM.render(
+				// <h1>hello,welcome to the world!</h1>,
+				<HelloText />,
+				document.getElementById('test')
+			);
+		</script>
+	</body>
+</html>
