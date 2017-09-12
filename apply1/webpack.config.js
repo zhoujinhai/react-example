@@ -15,8 +15,8 @@ module.exports = {
 		loaders: [
 			{test: /\.js$/,loader: 'jsx!babel',include: /src/},
 			{test: /\.css$/,loader: 'style!css'},
-			{test: /\.scss$/,loader: 'style!css'},
-			{test: /\.(png|jpg)/,loader: 'url?limit=8192'}
+			{test: /\.(png|jpg)/,loader: 'url?limit=8192'},
+			{test: /\.scss$/,loader: 'style!css'}
 		]
 	}
 };
