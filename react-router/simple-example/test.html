@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Test-router</title>
+		<!-- react核心库 -->
+		<script src="./public/js/react.js"></script> 
+		<!-- 提供与DOM相关的功能 -->
+		<script src="./public/js/react-dom.js"></script> 
+		<!-- react-router -->
+		<script src="./public/js/ReactRouter.min.js"></script> 
+		<!-- 将jsx转化成JavaScript -->
+		<script src="./public/js/browser.min.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="./public/css/main.css">
+	</head>
+	<body>
+		<div id="test"></div>
+		<script type="text/babel"> 
+			//自动获取前缀
+			var {Router,Route,IndexRoute,IndexLink,Link} = ReactRouter;
+			var Home = React.createClass({
+				render: function(){
+					return(
+						<div>
+							<h2>React Router</h2>
+							<p>
+								在线 Gitbook 地址：<a href="http://react-guide.github.io/react-router-cn/">'http://react-guide.github.io/react-router-cn/'</a> <br/>
+								英文原版：<a href="https://github.com/rackt/react-router/tree/master/docs">'https://github.com/rackt/react-router/tree/master/docs'</a>
+							</p>
+							<p>
+								React Router 是完整的 React 路由解决方案 <br/>
+
+								React Router 保持 UI 与 URL 同步。它拥有简单的 API 与强大的功能例如代码缓冲加载、动态路由匹配、以及建立正确的位置过渡处理。你第一个念头想到的应该是 URL，而不是事后再想起。
+							</p>
+						</div>
+					);
+				}
+			});
+			var Introduce = React.createClass({
+				render: function(){
+					return(
+						<div>
+							<h2>React Router introduce</h2>
+							<p>
+								React Router 是一个基于 React 之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，同时保持页面与 URL 间的同步。
+							</p>
+						</div>
+					)
+				}
+			});
+			var About = React.createClass({
+				render: function(){
+					return(
+						<div>
+							<h2>about</h2>
+							<p>
+								API 文档与指南<br/>
+								Change Log<br/>
+								Stack Overflow<br/>
+								Codepen Boilerplate 用于反馈 bug
+							</p>
+							<p>
+								注意： 如果你仍然使用的是 React Router 0.13.x，可以在 the 0.13.x branch 找到 文档。升级信息可以查看 change log。
+							</p>
+						</div>
+					)
+				}
+			});
+			var App = React.createClass({
+				render: function(){
+					return(
+						<div>
+							<h1 className="app-title">react-router应用</h1>
+							<ul className="app-header">
+								<li><IndexLink to="/" activeClassName="active">首页</IndexLink></li>
+								<li><Link to="/introduce" activeClassName="active">简介</Link></li>
+								<li><Link to="/about" activeClassName="active">关于</Link></li>
+							</ul>
+							<div className="content">
+								{this.props.children}
+							</div>
+						</div>
+					);
+				}
+			});
+			ReactDOM.render(
+				<Router>
+					<Route path="/" component={App}>
+						<IndexRoute component={Home} />
+						<Route path="introduce" component={Introduce} />
+						<Route path="about" component={About} />
+					</Route>
+				</Router>,
+				document.getElementById('test')
+			)
+		</script>
+	</body>
+</html>

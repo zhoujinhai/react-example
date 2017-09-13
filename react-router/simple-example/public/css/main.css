@@ -1,0 +1,41 @@
+body {
+  padding: 20px;
+  margin: 0;
+}
+.app-title{
+	text-align: center;
+}
+.app-header{
+    background-color: #111;
+	margin-bottom: 20px;
+    padding: 0;
+}
+.app-header li{
+	display: inline;
+	list-style-type: none;
+}
+.app-header li a {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px;
+}
+.content {
+    background-color: #eee;
+    padding: 20px;
+}
+.content a{
+    text-decoration: none;
+}
+.content h2 {
+    padding: 0;
+    margin: 0;
+}
+.content li {
+    margin-bottom: 10px;
+}
+
+.active {
+  background-color: #0099FF;
+}
