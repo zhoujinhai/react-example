@@ -1,5 +1,7 @@
 # react-example
-react入门练习
+## react入门练习
+展示[查看](https://codepen.io/hjz/full/veEZqZ/)<br />
+代码[demo](https://github.com/zhoujinhai/react-example/tree/master/apply1)
 
 ## react-router小例子
 1、应用一：展示[查看](https://codepen.io/hjz/full/RLwBao/)<br />
